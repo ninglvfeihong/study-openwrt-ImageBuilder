@@ -287,6 +287,15 @@ define Device/archer-c7-v2
 endef
 TARGET_DEVICES += archer-c5 archer-c7-v1 archer-c7-v2
 
+define Device/by-shs
+    $(Device/tplink-8mlzma)
+    BOARDNAME := BY-SHS
+    DEVICE_PROFILE := BYSHS
+    TPLINK_HWID := 0x01400001
+    CONSOLE := ttyATH0,115200
+endef
+TARGET_DEVICES += by-shs
+
 define Device/antminer-s1
 	$(Device/tplink-8mlzma)
 	BOARDNAME := ANTMINER-S1

@@ -6,7 +6,7 @@
 #
 
 define Profile/BYSHS
-	NAME:=Baiya Technology SHS
+	NAME:=Baiya Technology SHS BY-SHS
 	PACKAGES:=SHS
 endef
 

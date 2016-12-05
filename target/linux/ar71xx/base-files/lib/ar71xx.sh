@@ -101,6 +101,9 @@ tplink_board_detect() {
 	hwver="v${hwver#0}"
 
 	case "$hwid" in
+	"014000"*)
+		model="SHS project Baiya technology BY-SHS"
+		;;
 	"015000"*)
 		model="EasyLink EL-M150"
 		;;
@@ -431,6 +434,9 @@ ar71xx_board_detect() {
 		;;
 	*EAP7660D)
 		name="eap7660d"
+		;;
+	*"BY-SHS")
+		name="by-shs"
 		;;
 	*EL-M150)
 		name="el-m150"
