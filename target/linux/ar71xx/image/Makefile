@@ -288,7 +288,7 @@ endef
 TARGET_DEVICES += archer-c5 archer-c7-v1 archer-c7-v2
 
 define Device/by-shs
-    $(Device/tplink-8mlzma)
+    $(Device/tplink-16mlzma)
     BOARDNAME := BY-SHS
     DEVICE_PROFILE := BYSHS
     TPLINK_HWID := 0x01400001
