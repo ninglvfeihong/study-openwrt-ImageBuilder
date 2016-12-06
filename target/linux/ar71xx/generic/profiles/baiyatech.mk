@@ -7,7 +7,7 @@
 
 define Profile/BYSHS
 	NAME:=Baiya Technology SHS BY-SHS
-	PACKAGES:=luci minicom SHS
+	PACKAGES:=base-files luci minicom shs 
 endef
 
 
