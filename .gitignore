@@ -1,5 +1,7 @@
 *~
+build_dir/
 tmp/
+packages/
 # Compiled Object files
 *.slo
 *.lo
@@ -29,3 +31,5 @@ tmp/
 *.exe
 *.out
 *.app
+
+
