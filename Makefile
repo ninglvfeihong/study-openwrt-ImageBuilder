@@ -130,7 +130,9 @@ package_install: FORCE
 	@echo Installing packages...
 	$(OPKG) install $(firstword $(wildcard $(PACKAGE_DIR)/libc_*.ipk $(PACKAGE_DIR)/base/libc_*.ipk))
 	$(OPKG) install $(firstword $(wildcard $(PACKAGE_DIR)/kernel_*.ipk $(PACKAGE_DIR)/base/kernel_*.ipk))
-	$(OPKG) install $(BUILD_PACKAGES)
+	$(if $(filter base-files,$(BUILD_PACKAGES)), $(OPKG) install base-files)
+	$(OPKG) install $(filter-out base-files shs,$(BUILD_PACKAGES))
+	$(if $(filter shs,$(BUILD_PACKAGES)), $(OPKG) install shs)
 	rm -f $(TARGET_DIR)/usr/lib/opkg/lists/*
 
 copy_files: FORCE
