@@ -125,12 +125,21 @@ package_index: FORCE
 	) >/dev/null 2>/dev/null
 	$(OPKG) update || true
 
+ifeq ($(BOARD)_$(USER_PROFILE),ar71xx_BYSHS)
+#include base-files patch when board is ar71xx and user_profile is BYSHS
+include target/linux/$(BOARD)/base-files-patch.mk
+endif
+
 package_install: FORCE
 	@echo
 	@echo Installing packages...
 	$(OPKG) install $(firstword $(wildcard $(PACKAGE_DIR)/libc_*.ipk $(PACKAGE_DIR)/base/libc_*.ipk))
 	$(OPKG) install $(firstword $(wildcard $(PACKAGE_DIR)/kernel_*.ipk $(PACKAGE_DIR)/base/kernel_*.ipk))
 	$(if $(filter base-files,$(BUILD_PACKAGES)), $(OPKG) install base-files)
+ifeq ($(BOARD)_$(USER_PROFILE),ar71xx_BYSHS)
+#	apply base-files patch
+	$(call Package/base-files/patch,$(TARGET_DIR))
+endif
 	$(OPKG) install $(filter-out base-files shs,$(BUILD_PACKAGES))
 	$(if $(filter shs,$(BUILD_PACKAGES)), $(OPKG) install shs)
 	rm -f $(TARGET_DIR)/usr/lib/opkg/lists/*
