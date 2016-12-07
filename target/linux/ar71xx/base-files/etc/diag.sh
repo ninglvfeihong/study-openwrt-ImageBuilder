@@ -84,7 +84,7 @@ get_status_led() {
 		status_led="dragino2:red:system"
 		;;
 	by-shs)
-                status_led="engenius:green:system"
+                status_led="baiya:red:system"
                 ;;
 	eap300v2)
 		status_led="engenius:blue:power"

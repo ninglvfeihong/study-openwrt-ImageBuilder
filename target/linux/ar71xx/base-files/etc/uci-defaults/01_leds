@@ -31,7 +31,7 @@ all0315n)
 	ucidef_set_led_rssi "rssihigh" "RSSIHIGH" "all0315n:green:rssihigh" "wlan0" "70" "100" "-69" "8"
 	;;
 by-shs)
-        ucidef_set_led_default "sys" "SYS" "easylink:green:system" "0"
+        ucidef_set_led_default "sys" "SYS" "baiya:green:system" "0"
         ;;
 
 antminer-s1)
